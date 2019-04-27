@@ -10,6 +10,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
+    "strict": true,
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
@@ -21,9 +22,6 @@
     "paths": {
       "ngx-input-observable-decorator": [
         "dist/ngx-input-observable-decorator"
-      ],
-      "ngx-input-observable-decorator/*": [
-        "dist/ngx-input-observable-decorator/*"
       ]
     }
   }
