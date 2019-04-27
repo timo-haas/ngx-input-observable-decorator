@@ -1,18 +1,31 @@
 import { BehaviorSubject } from 'rxjs';
 
-const subjectInstanceMap = new WeakMap<any, BehaviorSubject<any>>();
-const getInstanceSubject = (instance: any): BehaviorSubject<any> => {
-  const existingSubject = subjectInstanceMap.get(instance);
-  if (existingSubject) {
-    return existingSubject;
+const instancesMapofSubjects = new WeakMap<
+  any,
+  Map<string, BehaviorSubject<any>>
+>();
+const getInstanceSubject = (
+  instance: any,
+  observablePropertyName: string
+): BehaviorSubject<any> => {
+  let existingInstanceMap = instancesMapofSubjects.get(instance);
+  if (!existingInstanceMap) {
+    const createdSubjectsMap = new Map<string, BehaviorSubject<any>>();
+    instancesMapofSubjects.set(instance, createdSubjectsMap);
+    existingInstanceMap = createdSubjectsMap;
   }
-  const instanceSubject = new BehaviorSubject<any>(undefined);
-  subjectInstanceMap.set(instance, instanceSubject);
-  return instanceSubject;
+
+  let foundSubject = existingInstanceMap.get(observablePropertyName);
+  if (!foundSubject) {
+    const createdSubject = new BehaviorSubject<any>(undefined);
+    existingInstanceMap.set(observablePropertyName, createdSubject);
+    foundSubject = createdSubject;
+  }
+  return foundSubject;
 };
 
 export function InputObservable<T>(options?: {
-  bindingObservablePropertyName?: string;
+  propertyNameSuffix?: string;
 }): any {
   return function(
     targetPrototype: T,
@@ -20,17 +33,18 @@ export function InputObservable<T>(options?: {
     descriptor: PropertyDescriptor
   ) {
     const observablePropertyName =
-      (options && options.bindingObservablePropertyName) || propertyName + '$';
+      propertyName + ((options && options.propertyNameSuffix) || '$');
+    console.log(observablePropertyName);
     const getterFx = function(this: T) {
-      return getInstanceSubject(this).getValue();
+      return getInstanceSubject(this, observablePropertyName).getValue();
     };
     const setterFx = function(this: T, value: any): void {
-      return getInstanceSubject(this).next(value);
+      return getInstanceSubject(this, observablePropertyName).next(value);
     };
 
     Object.defineProperty(targetPrototype, observablePropertyName, {
       get: function(this: T) {
-        return getInstanceSubject(this).asObservable();
+        return getInstanceSubject(this, observablePropertyName).asObservable();
       },
       enumerable: true
     });
