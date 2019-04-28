@@ -29,7 +29,5 @@ export class TestCompComponent implements OnInit {
   renamedStringInput2Obs!: Observable<string | undefined>;
 
   constructor() {}
-  ngOnInit() {
-    console.log(this);
-  }
+  ngOnInit() {}
 }

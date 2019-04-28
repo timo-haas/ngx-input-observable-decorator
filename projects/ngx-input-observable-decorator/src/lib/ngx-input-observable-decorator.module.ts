@@ -34,7 +34,6 @@ export function InputObservable<T>(options?: {
   ) {
     const observablePropertyName =
       propertyName + ((options && options.propertyNameSuffix) || '$');
-    console.log(observablePropertyName);
     const getterFx = function(this: T) {
       return getInstanceSubject(this, observablePropertyName).getValue();
     };
