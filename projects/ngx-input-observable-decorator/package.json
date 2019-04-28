@@ -1,7 +1,25 @@
 {
   "name": "ngx-input-observable-decorator",
   "version": "0.0.1",
+  "author": {
+    "name": "Timo Haas"
+  },
+  "description": "Observable decorator for Angular's Input decorator",
   "peerDependencies": {
     "rxjs": "~6.3.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timo-haas/ngx-input-observable-decorator.git"
+  },
+  "keywords": [
+    "decorator",
+    "angular",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/timo-haas/ngx-input-observable-decorator/issues"
+  },
+  "homepage": "https://github.com/timo-haas/ngx-input-observable-decorator",
+  "license": "MIT"
 }
