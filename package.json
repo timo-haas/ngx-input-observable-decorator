@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build ngx-input-observable-decorator",
-    "test": "ng test ngxInputObservableDecorator",
+    "test": "ng build ngx-input-observable-decorator && ng test ngxInputObservableDecorator",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
