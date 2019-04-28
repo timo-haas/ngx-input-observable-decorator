@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build ngx-input-observable-decorator",
     "test": "ng test --watch",
-    "travis": "ng build ngx-input-observable-decorator && ng test ngxInputObservableDecorator --browsers Firefox --single-run",
+    "travis": "ng build ngx-input-observable-decorator && ng test ngxInputObservableDecorator --browsers Firefox",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
