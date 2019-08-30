@@ -2,10 +2,18 @@
 
 [![Build Status](https://travis-ci.com/timo-haas/ngx-input-observable-decorator.png?branch=master)](https://travis-ci.com/timo-haas/ngx-input-observable-decorator)
 
+## Install
+```bash
+npm install ngx-input-observable-decorator
+```
 
 ## Usage
 
 ```javascript
+import { Input } from '@angular/core';
+import { InputObservable } from 'ngx-input-observable-decorator'
+import { Observable } from 'rxjs';
+
 class AComponent {
   @Input()
   @InputObservable()
@@ -14,7 +22,5 @@ class AComponent {
 }
 ```
 
-## Install
-```bash
-npm install ngx-input-observable-decorator --save-dev
-```
+## Demo
+[Stackblitz](https://stackblitz.com/edit/demo-ngx-input-observable-decorator)
