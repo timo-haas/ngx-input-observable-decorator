@@ -4,11 +4,18 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build ngx-input-observable-decorator",
+    "build": "npm run build-lib",
     "test": "ng test --watch",
     "travis": "ng build ngx-input-observable-decorator && ng test ngxInputObservableDecorator --browsers Firefox",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "watch-lib": "ng build ngx-input-observable-decorator --watch",
+    "build-lib": "npm run copy-readme-to-lib-folder && ng build ngx-input-observable-decorator",
+    "test-lib": "ng test ngx-input-observable-decorator",
+    "test-lib-ci": "ng test ngx-input-observable-decorator --watch=false --browsers=ChromeHeadless",
+    "lint-lib": "ng lint ngx-input-observable-decorator",
+    "pack-lib": "npm run build-lib && npm pack ./dist/ngx-input-observable-decorator",
+    "publish-lib": "npm run build-lib && npm publish ./dist/ngx-input-observable-decorator",
+    "publish-lib-next": "npm run build-lib && npm publish --tag next ./dist/ngx-input-observable-decorator",
+    "copy-readme-to-lib-folder": "copyfiles README.md ./projects/ngx-input-observable-decorator"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +41,7 @@
     "@types/jasmine": "3.4.0",
     "@types/jasminewd2": "2.0.3",
     "@types/node": "12.7.2",
+    "copyfiles": "2.1.0",
     "codelyzer": "5.0.1",
     "jasmine-core": "3.4.0",
     "jasmine-spec-reporter": "4.2.1",
