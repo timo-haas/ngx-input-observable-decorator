@@ -4,4 +4,4 @@
 
 ### Changed
 
-- rxjs peerDependency lowered to ^6.0.0 instead of ~6.3.3
+-   rxjs peerDependency lowered to ^6.0.0 instead of ~6.3.3
