@@ -1,9 +1,4 @@
 # ngx-input-observable-decorator
-Typescript Decorator @InputObservable for observing @Input properties
-
-### Prerequisites
-- Angular (min. 7.0.0)
-- RxJS (min. 6.0.0)
 
 [![Build Status](https://travis-ci.com/timo-haas/ngx-input-observable-decorator.png?branch=master)](https://travis-ci.com/timo-haas/ngx-input-observable-decorator)
 
