@@ -1,5 +1,11 @@
 # Changelog
 
+## [10.0.0] - 2020-06-28
+
+### Changed
+
+-   Updated for Angular 10.0
+
 ## [9.1.0] - 2020-05-01
 
 ### Changed
