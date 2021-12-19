@@ -86,16 +86,6 @@
                         "scripts": [],
                         "assets": ["src/favicon.ico", "src/assets"]
                     }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "src/tsconfig.app.json",
-                            "src/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**"]
-                    }
                 }
             }
         },
@@ -114,13 +104,6 @@
                         "production": {
                             "devServerTarget": "ngxInputObservableDecorator:serve:production"
                         }
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": "e2e/tsconfig.e2e.json",
-                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
@@ -149,16 +132,6 @@
                         "main": "projects/ngx-input-observable-decorator/src/test.ts",
                         "tsConfig": "projects/ngx-input-observable-decorator/tsconfig.spec.json",
                         "karmaConfig": "projects/ngx-input-observable-decorator/karma.conf.js"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/ngx-input-observable-decorator/tsconfig.lib.json",
-                            "projects/ngx-input-observable-decorator/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
